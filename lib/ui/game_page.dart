@@ -1,11 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:animal_shogi/domain/command/command.dart';
-import 'package:animal_shogi/domain/command/drop_piece.dart';
-import 'package:animal_shogi/domain/command/select_captured_piece.dart';
 import 'package:animal_shogi/entity/model/model.dart';
 import 'package:animal_shogi/ui/game_view_model.dart';
 
