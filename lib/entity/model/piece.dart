@@ -44,11 +44,9 @@ final _keimaUpLeft = Movement(
 
 // 駒の動きを定義
 
-
-// 王将
-const ousho = '王';
-const gyokusho = '玉';
-final _oushoMovableDirections = [
+// ライオン
+const lion = 'ラ';
+final _lionMovableDirections = [
   _upOne,
   _upRightOne,
   _rightOne,
@@ -58,82 +56,42 @@ final _oushoMovableDirections = [
   _leftOne,
   _upLeftOne,
 ];
-// 飛車、龍王
-const hisha = '飛';
-final _hishaMovableDirections = [
-  _upToEnd,
-  _rightToEnd,
-  _downToEnd,
-  _leftToEnd,
-];
-const ryuou = '龍';
-final _ryuouMovableDirections = [
-  ..._hishaMovableDirections,
-  _upRightOne,
-  _downRightOne,
-  _downLeftOne,
-  _upLeftOne,
-];
-// 角行、竜目
-const kakugyo = '角';
-final _kakuMovableDirections = [
-  _upRightToEnd,
-  _downRightToEnd,
-  _downLeftToEnd,
-  _upLeftToEnd,
-];
-const ryume = '馬';
-final _ryumeMovableDirections = [
-  ..._kakuMovableDirections,
-  _upOne,
-  _rightOne,
-  _downOne,
-  _leftOne,
-];
 
-// 金将
-const kinsho = '金';
-final _kinshoMovableDirections = [
-  _upOne,
-  _upRightOne,
-  _rightOne,
-  _downOne,
-  _leftOne,
-  _upLeftOne,
-];
-
-// 銀将
-const ginsho = '銀';
-const narigin = '全';
-final _ginshoMovableDirections = [
-  _upOne,
+// ゾウ
+const zou = 'ゾ';
+final _zouMovableDirections = [
   _upRightOne,
   _downRightOne,
   _downLeftOne,
   _upLeftOne,
 ];
 
-// 桂馬
-const keima = '桂';
-const narikei = '圭';
-final _keimaMovableDirections = [
-  _keimaUpRight,
-  _keimaUpLeft,
-];
-
-// 香車
-const kyosha = '香';
-const narikyo = '杏';
-final _kyoshaMovableDirections = [
-  _upToEnd,
-];
-
-// 歩兵
-const huhyo = '歩';
-const narikin = 'と';
-
-final _huhyoMovableDirections = [
+// キリン
+const kirin = 'キ';
+final _kirinMovableDirections = [
   _upOne,
+  _rightOne,
+  _downOne,
+  _leftOne,
+];
+
+// ひよこ
+const hiyoko = 'ひ';
+final _hiyokoMovableDirections = [
+  _upOne,
+];
+
+// にわとり（ひよこの成り駒）
+const niwatori = 'に';
+final _niwatoriMovableDirections = [
+  _upOne,
+  _upRightOne,
+  _rightOne,
+  _downRightOne,
+  _downOne,
+  _downLeftOne,
+  _leftOne,
+  _upLeftOne,
 ];
 
 // 駒の移動
@@ -157,199 +115,69 @@ abstract class Piece implements _$Piece {
     Vector2? position,
   }) = _Piece;
   Piece._();
-  factory Piece.huhyo(
+  factory Piece.lion(
     Vector2 position,
     String ownerId,
   ) =>
       Piece(
-        name: huhyo,
-        movableDirections: _huhyoMovableDirections,
+        name: lion,
+        movableDirections: _lionMovableDirections,
         position: position,
         ownerId: ownerId,
       );
-  factory Piece.tokin(
+  factory Piece.zou(
     Vector2 position,
     String ownerId,
   ) =>
       Piece(
-        name: narikin,
-        movableDirections: _kinshoMovableDirections,
+        name: zou,
+        movableDirections: _zouMovableDirections,
         position: position,
         ownerId: ownerId,
       );
-  factory Piece.kyosha(
+  factory Piece.kirin(
     Vector2 position,
     String ownerId,
   ) =>
       Piece(
-        name: kyosha,
-        movableDirections: _kyoshaMovableDirections,
+        name: kirin,
+        movableDirections: _kirinMovableDirections,
         position: position,
         ownerId: ownerId,
       );
-  factory Piece.narikyo(
+  factory Piece.hiyoko(
     Vector2 position,
     String ownerId,
   ) =>
       Piece(
-        name: narikyo,
-        movableDirections: _kinshoMovableDirections,
+        name: hiyoko,
+        movableDirections: _hiyokoMovableDirections,
         position: position,
         ownerId: ownerId,
       );
-  factory Piece.keima(
+  factory Piece.niwatori(
     Vector2 position,
     String ownerId,
   ) =>
       Piece(
-        name: keima,
-        movableDirections: _keimaMovableDirections,
-        position: position,
-        ownerId: ownerId,
-      );
-  factory Piece.narikei(
-    Vector2 position,
-    String ownerId,
-  ) =>
-      Piece(
-        name: narikei,
-        movableDirections: _kinshoMovableDirections,
-        position: position,
-        ownerId: ownerId,
-      );
-  factory Piece.ginsho(
-    Vector2 position,
-    String ownerId,
-  ) =>
-      Piece(
-        name: ginsho,
-        movableDirections: _ginshoMovableDirections,
-        position: position,
-        ownerId: ownerId,
-      );
-  factory Piece.narigin(
-    Vector2 position,
-    String ownerId,
-  ) =>
-      Piece(
-        name: narigin,
-        movableDirections: _kinshoMovableDirections,
-        position: position,
-        ownerId: ownerId,
-      );
-  factory Piece.hisha(
-    Vector2 position,
-    String ownerId,
-  ) =>
-      Piece(
-        name: hisha,
-        movableDirections: _hishaMovableDirections,
-        position: position,
-        ownerId: ownerId,
-      );
-  factory Piece.ryuo(
-    Vector2 position,
-    String ownerId,
-  ) =>
-      Piece(
-        name: ryuou,
-        movableDirections: _ryuouMovableDirections,
-        position: position,
-        ownerId: ownerId,
-      );
-  factory Piece.kakugyo(
-    Vector2 position,
-    String ownerId,
-  ) =>
-      Piece(
-        name: kakugyo,
-        movableDirections: _kakuMovableDirections,
-        position: position,
-        ownerId: ownerId,
-      );
-  factory Piece.ryuma(
-    Vector2 position,
-    String ownerId,
-  ) =>
-      Piece(
-        name: ryume,
-        movableDirections: _ryumeMovableDirections,
-        position: position,
-        ownerId: ownerId,
-      );
-  factory Piece.kinsho(
-    Vector2 position,
-    String ownerId,
-  ) =>
-      Piece(
-        name: kinsho,
-        movableDirections: _kinshoMovableDirections,
-        position: position,
-        ownerId: ownerId,
-      );
-  factory Piece.ousho(
-    Vector2 position,
-    String ownerId,
-  ) =>
-      Piece(
-        name: ousho,
-        movableDirections: _oushoMovableDirections,
-        position: position,
-        ownerId: ownerId,
-      );
-  factory Piece.gyokusho(
-    Vector2 position,
-    String ownerId,
-  ) =>
-      Piece(
-        name: gyokusho,
-        movableDirections: _oushoMovableDirections,
+        name: niwatori,
+        movableDirections: _niwatoriMovableDirections,
         position: position,
         ownerId: ownerId,
       );
 
   /// 成りで何に成るか
   Piece? promote() {
-    if (name == huhyo) {
-      return Piece.tokin(position!, ownerId);
-    }
-    if (name == kyosha) {
-      return Piece.narikyo(position!, ownerId);
-    }
-    if (name == keima) {
-      return Piece.narikei(position!, ownerId);
-    }
-    if (name == ginsho) {
-      return Piece.narigin(position!, ownerId);
-    }
-    if (name == hisha) {
-      return Piece.ryuo(position!, ownerId);
-    }
-    if (name == kakugyo) {
-      return Piece.ryuma(position!, ownerId);
+    if (name == hiyoko) {
+      return Piece.niwatori(position!, ownerId);
     }
     return null;
   }
 
   /// 成りを解除
   Piece? demote() {
-    if (name == narikin) {
-      return Piece.huhyo(position!, ownerId);
-    }
-    if (name == narikyo) {
-      return Piece.kyosha(position!, ownerId);
-    }
-    if (name == narikei) {
-      return Piece.keima(position!, ownerId);
-    }
-    if (name == narigin) {
-      return Piece.ginsho(position!, ownerId);
-    }
-    if (name == ryuou) {
-      return Piece.hisha(position!, ownerId);
-    }
-    if (name == ryume) {
-      return Piece.kakugyo(position!, ownerId);
+    if (name == niwatori) {
+      return Piece.hiyoko(position!, ownerId);
     }
     return null;
   }
@@ -357,12 +185,7 @@ abstract class Piece implements _$Piece {
   /// 成った駒か
   bool isPromoted() {
     switch (name) {
-      case narikin:
-      case narikyo:
-      case narikei:
-      case narigin:
-      case ryuou:
-      case ryume:
+      case niwatori:
         return true;
     }
     return false;
