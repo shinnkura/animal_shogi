@@ -1,16 +1,33 @@
-# animal_shogi
+# どうぶつしょうぎのルール
 
-A new Flutter project.
+どうぶつしょうぎは、小さなお子様でも楽しめる将棋の一種です。以下はその基本ルールです。
 
-## Getting Started
+## 盤面と駒
 
-This project is a starting point for a Flutter application.
+- 盤面は 3x4 のマスから成り立っています。
+- 各プレイヤーは「ぞう」「きりん」「ひよこ」「ライオン」の 4 種類の駒を持っています。
 
-A few resources to get you started if this is your first Flutter project:
+## 勝利条件
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- 相手の「ライオン」を取るか、自分の「ライオン」を相手の陣地（一番奥の段）に移動させると勝ちです。
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 駒の動かし方
+
+- 「ライオン」: 1 マス隣接する 8 方向に動けます。
+- 「ぞう」: 斜めの 4 方向に動けます。
+- 「きりん」: 上下左右の 4 方向に動けます。
+- 「ひよこ」: 前に 1 マス進むことができます。
+
+## ひよこの成り
+
+- 「ひよこ」が相手の陣地に入ると「にわとり」に成り、1 マス隣接する 8 方向に動けるようになります。
+- 自分の陣地に戻ると再び「ひよこ」に戻ります。
+
+## 駒の取り方
+
+- 相手の駒がいるマスに自分の駒を動かすと、その駒を取ることができます。
+- 取った駒は、自分の手番に盤面の空いているマスに打つことができます。
+
+## 禁じ手
+
+- 自分のライオンが取られるような手は打てません。

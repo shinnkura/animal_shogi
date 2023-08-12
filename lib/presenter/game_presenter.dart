@@ -67,10 +67,7 @@ class ShogiGamePresenterImpl extends ShogiGameOutput {
   }
 
   @override
-  void selectedPieceToDrop(
-    Piece piece,
-    List<Vector2> movablePositions,
-  ) {
+  void selectedPieceToDrop(Piece piece, List<Vector2> movablePositions) {
     deselectedPiece();
     _read(
       selectedPieceProvider.notifier,
@@ -84,9 +81,7 @@ class ShogiGamePresenterImpl extends ShogiGameOutput {
   }
 
   @override
-  void turnEnd(
-    String nextPlayerId,
-  ) {
+  void turnEnd(String nextPlayerId) {
     _read(
       turnOwnerProvider.notifier,
     ).state = nextPlayerId;

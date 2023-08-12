@@ -43,6 +43,8 @@ final _keimaUpLeft = Movement(
 );
 
 // 駒の動きを定義
+
+
 // 王将
 const ousho = '王';
 const gyokusho = '玉';
